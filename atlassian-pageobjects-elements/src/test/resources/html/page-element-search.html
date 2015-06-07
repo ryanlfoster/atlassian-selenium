@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Test page for page element search</title>
+    <script src="../js/jquery-1.4.2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // everything back to 1
+            $('#async-to-state-1').click(function() {
+                setTimeout(function() {
+                    $('.async-parent-level-2-class li').attr('data-state', '1');
+                }, 100)
+
+            });
+            // all position-two elements to state 2
+            $('#async-to-state-2').click(function() {
+                setTimeout(function() {
+                    $('.async-parent-level-2-class .position-two').attr('data-state', '2');
+                }, 100)
+            });
+            // all position-three elements to state 3
+            $('#async-to-state-3').click(function() {
+                setTimeout(function() {
+                    $('.async-parent-level-2-class .position-three').attr('data-state', '3');
+                }, 100)
+            });
+        });
+    </script>
+</head>
+<body id="page-element-search-page">
+<h2>Single element by ID</h2>
+<div id="single-element" />
+
+<h2>Table List with headers</h2>
+<div id="table-list">
+    <table id="the-table">
+        <thead>
+        <tr class="header-row">
+            <th>One</th>
+            <th>Two</th>
+        </tr>
+        </thead>
+        <tr class="uneven-row one" data-name="Uneven Row 1">
+            <td>11</td>
+            <td>12</td>
+        </tr>
+        <tr class="even-row two" data-name="Even Row 1">
+            <td>21</td>
+            <td>22</td>
+        </tr>
+        <tr class="uneven-row three" data-name="Uneven Row 2">
+            <td>31</td>
+            <td>32</td>
+        </tr>
+        <tr class="even-row four" data-name="Even Row 2">
+            <td>41</td>
+            <td>42</td>
+        </tr>
+        <tr class="uneven-row five" data-name="Uneven Row 3">
+            <td>51</td>
+            <td>52</td>
+        </tr>
+        <tr class="even-row six" data-name="Even Row 3">
+            <td>61</td>
+            <td>62</td>
+        </tr>
+    </table>
+</div>
+
+<h2>Nested search</h2>
+<div id="parent-1">
+    <div class="parent-2-class">
+        <ul>
+            <li>WRONG!</li>
+        </ul>
+    </div>
+
+    <div class="parent-2-class" data-find-me="true">
+        <ul>
+            <li>No</li>
+            <li data-pick-me="yes">Yes-1</li>
+            <li>No</li>
+            <li data-pick-me="yes">Yes-2</li>
+        </ul>
+    </div>
+</div>
+
+<h2>Checkboxes</h2>
+<div id="checkbox-parent">
+    <input type="checkbox" id="checkbox-1" value="checkbox-1" checked />
+    <input type="checkbox" id="checkbox-2" value="checkbox-2" />
+    <input type="checkbox" id="checkbox-3" value="checkbox-3" />
+</div>
+
+<h2>Nested search with async update</h2>
+<div id="async-update-parent">
+    <button id="async-to-state-1" value="To state 1">To state 1</button>
+    <button id="async-to-state-2" value="To state 2">To state 2</button>
+    <button id="async-to-state-3" value="To state 3">To state 3</button>
+    <div class="async-parent-level-2-class">
+        <ul>
+            <li data-state="1" class="position-one">one</li>
+            <li data-state="1" class="position-two">two</li>
+            <li data-state="1" class="position-three">three</li>
+        </ul>
+    </div>
+
+    <div class="async-parent-level-2-class">
+        <ul>
+            <li data-state="1" class="position-one">one</li>
+            <li data-state="1" class="position-two">two</li>
+            <li data-state="1" class="position-three">three</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+.aui-toolbar {
+    background: #f0f0f0;
+    border-top: 1px solid #bbb;
+    clear: both;
+    display: inline-block; /* new rendering context */
+    padding-top: 10px;
+    position: relative;
+    width: 100%; /* emulate normal block */
+}
+
+.aui-toolbar .toolbar-group {
+    display: inline-block;
+    float: left;
+    padding: 0;
+    margin: 0 10px 10px 0;
+    white-space: nowrap;
+}
+
+.aui-toolbar .toolbar-item {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.aui-toolbar .aui-dd-parent {
+    position: relative;
+    width: auto;
+}
+
+/* splits set toolbars into multiple sections, eg. left/right split */
+.aui-toolbar .toolbar-split {
+    display: inline-block;
+    float: left;
+    margin-left: 10px;
+}
+
+.aui-toolbar .toolbar-split.toolbar-split-right {
+    float: right;
+}
+
+.aui-toolbar .toolbar-split.toolbar-split-row {
+    clear: both;
+    float: none;
+    width: 100%;
+}
+
+/* primary buttons */
+.aui-toolbar .primary .toolbar-trigger {
+    font-weight: bold;
+}
+
+/* available/inactive controls */
+.aui-toolbar .toolbar-group .toolbar-trigger,
+.aui-toolbar .aui-dd-parent a.aui-dd-trigger {
+    background: #fff url("images/toolbar/aui-toolbar-button-inactive-bg.png") bottom left repeat-x;
+    border: 1px solid #ddd;
+    border-left: 1px solid #f9f9f9;
+    color: #000;
+    display: inline-block;
+    float: left;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 22px;
+    line-height: 22px;
+    margin: 0;
+    min-width: 14px;
+    padding: 0 10px;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0;
+    width: auto;
+}
+
+.aui-toolbar .toolbar-group .toolbar-item.toolbar-item-link .toolbar-trigger {
+    border: 0;
+    padding-top: 1px;
+}
+
+.aui-toolbar .toolbar-group .toolbar-item-link:hover .toolbar-trigger,
+.aui-toolbar .toolbar-group .toolbar-item-link .toolbar-trigger {
+    border: 0;
+    background: transparent;
+    text-decoration: none;
+    color: #3C78B5;
+    padding: 1px 0 2px 0;
+}
+
+/* adjust height of <button>s and <input>s */
+.aui-toolbar .toolbar-group button.toolbar-trigger {
+    height: 24px;
+    padding-bottom: 2px;
+}
+.aui-toolbar .toolbar-group input.toolbar-trigger {
+    height: 24px;
+    padding-bottom: 1px;
+}
+
+/* disabled controls */
+.aui-toolbar .disabled, .aui-toolbar.disabled a {
+    opacity: 0.5;
+}
+
+.aui-toolbar .active, .aui-toolbar .active a {
+    opacity: 1;
+}
+
+.toolbar-group .toolbar-item:first-of-type a,
+.toolbar-group .toolbar-item:first-of-type button,
+.toolbar-group .toolbar-item:first-of-type input {
+    -webkit-border-top-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.toolbar-group .toolbar-item.toolbar-splitbutton:last-of-type .aui-dd-trigger {
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius-bottomleft: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+}
+
+.toolbar-group .toolbar-item.toolbar-splitbutton:last-of-type .aui-dd-trigger,
+.toolbar-group .toolbar-item:last-of-type .toolbar-trigger,
+.toolbar-group .toolbar-item:last-of-type button,
+.toolbar-group .toolbar-item:last-of-type input {
+    -webkit-border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.toolbar-group .toolbar-splitbutton:last-of-type .toolbar-trigger {
+    -webkit-border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-radius-topright: 0;
+    -moz-border-radius-bottomright: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.toolbar-group .toolbar-item:first-of-type .toolbar-trigger,
+.toolbar-group .toolbar-item:first-of-type button {
+    border-left: 1px solid #ddd;
+}
+
+.aui-toolbar .toolbar-group .aui-dropdown {
+    border: 1px solid #999;
+}
+
+.aui-toolbar .toolbar-group .aui-dropdown a {
+    border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+/* hover/focus controls */
+.aui-toolbar .toolbar-group .active .toolbar-trigger,
+.aui-toolbar .toolbar-splitbutton:hover .toolbar-trigger,
+.aui-toolbar .toolbar-group .toolbar-trigger:focus,
+.aui-toolbar .toolbar-group .toolbar-trigger:hover,
+.aui-toolbar .toolbar-group button:focus,
+.aui-toolbar .toolbar-group button:hover,
+.aui-toolbar .aui-dd-parent .aui-dd-trigger:focus,
+.aui-toolbar .aui-dd-parent .aui-dd-trigger:hover,
+.aui-toolbar .toolbar-group .active .toolbar-trigger:hover {
+    border-color: #999;
+    outline: 0;
+}
+
+.aui-toolbar .aui-dd-parent a.aui-dd-trigger.active {
+    background: #d8e4f0 url("aui-toolbar-button-active-bg.png") top left repeat-x;
+    border-left: 1px solid #D8E4F0;
+}
+
+.aui-toolbar .toolbar-group .active .toolbar-trigger,
+.aui-toolbar .toolbar-group .toolbar-trigger:active {
+    background: #d8e4f0 url("aui-toolbar-button-active-bg.png") top left repeat-x;
+    border: 1px solid #999;
+}
+
+.aui-toolbar .toolbar-dropdown .icon-dropdown,
+.aui-toolbar .toolbar-splitbutton .icon-dropdown {
+    background: transparent url("images/toolbar/aui-toolbar-24px.png") 0 0 no-repeat;
+    display: inline-block;
+    float: right;
+    height: 100%;
+    margin-top: 0;
+    margin-left: 5px;
+    margin-right: -5px;
+    padding-right: 5px;
+}
+
+.aui-toolbar .toolbar-dropdown .icon-dropdown {
+    background-position: -24px 10px;
+    width: 7px;
+}
+
+.aui-toolbar .toolbar-dropdown .dropdown-text,
+.aui-toolbar .toolbar-splitbutton .dropdown-text,
+.toolbar-group .toolbar-splitbutton .aui-dd-parent {
+    display: inline-block;
+    float: left;
+}
+
+.aui-toolbar .toolbar-splitbutton .aui-dd-parent .aui-dd-trigger {
+    min-width: 0;
+    margin: 0;
+    padding: 0 2px;
+    width: 9px;
+}
+
+.aui-toolbar .toolbar-splitbutton .icon-dropdown {
+    background-position: -46px 10px;
+    text-indent: -9999px;
+    width: 9px;
+}
+
+.aui-toolbar .toolbar-splitbutton .toolbar-trigger {
+    border-right-style: dotted;
+}
+.aui-toolbar .toolbar-splitbutton .aui-dd-parent .toolbar-trigger {
+    border-right-style: solid;
+}

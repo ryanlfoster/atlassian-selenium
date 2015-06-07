@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScriptUtils test page</title>
+    <link type="text/css" rel="stylesheet" href="/css/js-utils.css">
+    <script src="/js/jquery/jquery-1.4.2.js"></script>
+</head>
+<body>
+<div id="mouseout-jquery-element">
+    MOUSEOUT ELEMENT
+    <span id="mouseout-container">no mouseout</span>
+</div>
+<h1>JavaScriptUtils test page</h1>
+
+<div id="hovering-element">
+    HOVERING ELEMENT
+    <ul>
+        <li id="child-element-one" class="child-element">one</li>
+        <li id="child-element-two" class="child-element">two</li>
+        <li id="child-element-three" class="child-element">three</li>
+    </ul>
+</div>
+
+<div id="hovering-jquery-element">
+    HOVERING ELEMENT
+    <ul>
+        <li id="child-jquery-element-one" class="child-element">one</li>
+        <li id="child-jquery-element-two" class="child-element">two</li>
+        <li id="child-jquery-element-three" class="child-element">three</li>
+    </ul>
+</div>
+
+<div id="hover-sink">
+    SINK FOR MOVING HOVER AWAY
+</div>
+
+<script>
+    window.hideAll = function() {
+        jQuery("#hovering-jquery-element").find(".child-element").hide();
+    };
+
+    window.showAll = function() {
+        jQuery("#hovering-jquery-element").find(".child-element").show();
+    };
+
+    window.hideAll();
+    jQuery("#hovering-jquery-element").mouseover(function() {
+        window.showAll();
+    });
+    jQuery("#hovering-jquery-element").mouseout(function() {
+        window.hideAll();
+    });
+
+    // Updates the element when the mouseout event fires.
+    jQuery("#mouseout-jquery-element").mouseover(function() {
+        jQuery("#mouseout-container").text("mouseover");
+    });
+    jQuery("#mouseout-jquery-element").mouseout(function() {
+        jQuery("#mouseout-container").text("mouseout");
+    });
+
+
+</script>
+
+</body>
+</html>

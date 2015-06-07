@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>HTML Elements</title>
+    <script src="../js/jquery-1.4.2.min.js"></script>
+    <script>
+        var delayInMilliseconds = 2000;
+    </script>
+</head>
+<body>
+    <h1>Html Elements Page</h1>
+
+    <span>(All delays are of 2 seconds)</span><br />
+
+    <h2>1. Test for presence</h2>
+    <input type="button" id="test1_addElementsButton" value="Add Elements With Delay" /><br />
+    <div id="test1_delayedDiv"></div>
+
+    <div id="parent-container">
+        <input type="button" class="child-button" value="Child button that does nothing" />
+    </div>
+    <script>
+         $(document).ready(function(){
+            $('#test1_addElementsButton').click(function(){
+                setTimeout('test1_appendElements()', delayInMilliseconds);
+            });
+         });
+
+        function test1_appendElements()
+        {
+            $('#test1_delayedDiv').append("<span id='test1_delayedSpan' class='testClass'>Delayed Span</span>");
+        }
+
+    </script>
+
+    <h2>2. Test for visibility</h2>
+    <input type="text" id="test2_input" value="test2_input" />
+    <input type="button" id="test2_toggleInputVisibility" value="Toggle Visibility"/>
+    <input type="button" id="test2_toggleInputVisibilityWithDelay" value="Toggle Visibility With Delay"/><br />
+    <input type="button" id="test2_addElementsButton" value="Add Elements With Delay" /><br />
+    <div id="test2_delayedDiv"></div>
+
+     <script>
+         $(document).ready(function(){
+            $('#test2_toggleInputVisibility').click(function(){
+                test2_toggleInput();
+            });
+            $('#test2_toggleInputVisibilityWithDelay').click(function(){
+                setTimeout('test2_toggleInput()', delayInMilliseconds);
+            });
+            $('#test2_addElementsButton').click(function(){
+                setTimeout('test2_appendElements()', delayInMilliseconds);
+            });
+         });
+
+        function test2_toggleInput(){
+            var element = $('#test2_input');
+
+            if(element.is(":visible")){
+                element.hide();
+            }
+            else{
+                element.show();
+            }
+        }
+
+        function test2_appendElements()
+        {
+            $('#test2_delayedDiv').append("<span id='test2_delayedSpan' class='testClass'>Delayed Span</span>");
+        }
+    </script>
+
+    <h2>3. Test for text</h2>
+    <span id="test3_span">Span Value</span><br />
+    <span id="test3_spanEmpty"></span><input type="button" id="test3_setTextButton" value="Set Text With Delay" /><br />
+    <input type="button" id="test3_addElementsButton" value="Add Elements With Delay" /><br />
+    <div id="test3_delayedDiv"></div>
+
+    <script >
+         $(document).ready(function(){
+            $('#test3_addElementsButton').click(function(){
+                setTimeout('test3_appendElements()', delayInMilliseconds);
+            });
+
+              $('#test3_setTextButton').click(function(){
+               setTimeout('test3_setText()', delayInMilliseconds);
+            });
+         });
+
+        function test3_appendElements()
+        {
+            $('#test3_delayedDiv').append("<span id='test3_delayedSpan' class='testClass'>Delayed Span</span>");
+        }
+
+        function test3_setText()
+        {
+            $('#test3_spanEmpty').text("Delayed Text");
+        }
+    </script>
+
+    <h2>4. Test for find</h2>
+    <ul id="test4_parentList">
+        <li>
+            Parent List
+            <ul id="test4_childList">
+                <li>
+                    Child List
+                    <ul id="test4_leafList">
+                        <li class="test4_item">Item 1</li>
+                        <li class="test4_item">Item 2</li>
+                        <li class="test4_item">Item 3</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <input type="button" id="test4_addElementsButton" value="Add Elements With Delay" /><br />
+
+    <script >
+         $(document).ready(function(){
+            $('#test4_addElementsButton').click(function(){
+                setTimeout('test4_appendElements()', delayInMilliseconds);
+            });
+         });
+
+        function test4_appendElements()
+        {
+            $('#test4_leafList').append("<li><a href='#'>Item 4</a></li>");
+            $('#test4_leafList').append("<li class='listitem-active'>Item 5</li>");
+        }
+
+    </script>
+
+    <h2>5. Test for attribute</h2>
+    <input type="text" id="test5_input" class="test5-input-class" empty="" />
+    <input type="button" id="test5_addAttribute" value="Add attribute with delay" /> <br />
+    <input type="button" id="test5_addElementsButton" value="Add Elements With Delay" /><br />
+    <div id="test5_delayedDiv"></div>
+
+    <script >
+         $(document).ready(function(){
+            $('#test5_addElementsButton').click(function(){
+                setTimeout('test5_appendElements()', delayInMilliseconds);
+            });
+
+             $('#test5_addAttribute').click(function(){
+                setTimeout('test5_addAttribute()', delayInMilliseconds);
+             });
+         });
+
+        function test5_appendElements()
+        {
+            $('#test5_delayedDiv').append("<span id='test5_delayedSpan' class='test5-span-delayed'>Delayed Span</span>");
+        }
+
+        function test5_addAttribute()
+        {
+            $('#test5_input').attr("value", "test5-input-value");
+        }
+
+    </script>
+
+    <h2>6. Test for timed() within context</h2>
+    <span class="test6_class">SelectElement singleSelect = Test6_Span</span>
+    <div id="test6_Div">
+        <span class="test6_class" id="test6_Inner_Span">Test6_Inner_Span</span>
+        <input type="button" id="test6_hideSpanButton" value="Hide Inner Span With Delay" /><br />
+    </div>
+
+    <script >
+        $(document).ready(function(){
+           $('#test6_hideSpanButton').click(function(){
+               setTimeout('test6_hideElements()', delayInMilliseconds);
+           });
+        });
+
+       function test6_hideElements()
+       {
+            $('#test6_Inner_Span').hide();
+       }
+   </script>
+
+    <h2>7. Test for Element with ByJQuery</h2>
+    <div id="awesome-div">
+        <span id="awesome-span">Awesome!</span>
+    </div>
+
+    <select id="awesome-select">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+
+    <h2>8. Test for Checkbox</h2>
+    <input type="checkbox" id="test8_checkbox1" value="Test8_Checkbox1" />
+    <label for="test8_checkbox1">Test8_Checkbox1</label>
+    <br />
+    <input type="checkbox" id="test8_checkbox2" value="Test8_Checkbox2" checked=checked />
+    <label for="test8_checkbox2">Test8_Checkbox2</label>
+
+    <h2>9. Test for PageElement.find() with custom types</h2>
+    <div id="select-parent-div">
+        <select id="nested-select" class="nested-select-marker">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+
+        <select id="nested-select2" >
+          <option value="volvo">JIRA</option>
+          <option value="saab">Confluence</option>
+          <option value="mercedes">Bamboo</option>
+          <option value="audi">Fisheye</option>
+          <option value="audi">Crucible</option>
+        </select>
+    </div>
+
+    <h2>10. Test for value</h2>
+    <input type="text" id="test9_input" value="test9_value" />
+    <input type="button" id="test9_toggleValue" value="Toggle Value"/>
+
+     <script >
+         $(document).ready(function() {
+            $('#test9_toggleValue').click(function() {
+                setTimeout(test9_toggleInput, delayInMilliseconds);
+            });
+         });
+
+        function test9_toggleInput() {
+            var element = $('#test9_input');
+
+            if(element.val() === "test9_value") {
+                element.val("test9_newvalue");
+            }
+            else {
+                element.val("test9_value");
+            }
+        }
+    </script>
+
+
+    <h2>11. Test for find with reload</h2>
+    <ul id="test10_parentList">
+        <li>
+            Parent List
+            <ul id="test10_childList">
+                <li>
+                    Child List
+                    <ul id="test10_leafList">
+                        <li class="test10_item">Item 1</li>
+                        <li class="test10_item">Item 2</li>
+                        <li class="test10_item">Item 3</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <input type="button" id="test10_reloadChildListButton" value="Reload whole child list" /><br />
+    <input type="button" id="test10_reloadChildElementsButton" value="Reload child elements" /><br />
+
+    <script>
+         $(document).ready(function() {
+            $('#test10_reloadChildListButton').click(test10_reloadList);
+            $('#test10_reloadChildElementsButton').click(test10_reloadElements);
+         });
+
+        function test10_reloadList() {
+            $('#test10_leafList').remove();
+            setTimeout(function() {
+                $('#test10_childList').append("<ul id='test10_leafList' />");
+                test10_reappendElements()
+            }, delayInMilliseconds);
+        }
+
+        function test10_reloadElements() {
+            $('.test10_item').remove();
+            setTimeout(test10_reappendElements, delayInMilliseconds);
+        }
+
+        function test10_reappendElements() {
+            $('#test10_leafList')
+                    .append("<li class='test10_item'>Item 1</li>")
+                    .append("<li class='test10_item'>Item 2</li>")
+                    .append("<li class='test10_item'>Item 3</li>");
+        }
+
+    </script>
+
+    <h2>12. Test for execute script on an element</h2>
+    <input type="button" id="test11_button" value="Test11 Button" />
+
+
+</body>
+</html>

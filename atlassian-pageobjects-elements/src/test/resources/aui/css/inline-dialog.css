@@ -1,0 +1,32 @@
+.aui-inline-dialog {
+    font-size: 13px;
+    display: none;
+    position: absolute;
+    z-index: 100;
+}
+.aui-inline-dialog .contents {
+    background: white;
+    border: 1px solid #bbb;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    overflow: hidden;
+    width: 300px;
+}
+.aui-inline-dialog .contents form.aui {
+    margin-bottom: 0;
+}
+.aui-inline-dialog .contents .submit {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+.aui-inline-dialog .arrow {
+    position: absolute;
+    height: 16px;
+    top: -7px; /* matches #inline-dialog-shim */
+    width: 16px;
+}
+#inline-dialog-shim {
+    display: none;
+}

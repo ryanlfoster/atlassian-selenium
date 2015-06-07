@@ -1,0 +1,18 @@
+.clear {
+    clear: both;
+}
+.hidden,
+form.aui .hidden,
+form.aui .field-group.hidden,
+form.aui fieldset.hidden {
+    display: none;
+}
+
+.assistive, legend.assistive span {
+    position: absolute;
+    left: -20000px;
+    width: 4000px;
+    overflow: hidden;
+    top: 0;
+    height: 0;
+}

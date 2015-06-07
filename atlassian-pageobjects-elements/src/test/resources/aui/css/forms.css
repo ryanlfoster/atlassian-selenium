@@ -1,0 +1,363 @@
+/* CSS Document for form styling - REQUIRES class of 'aui' to form */
+
+form.aui {
+    color: #333;
+    font-family: arial,tahoma,verdana,sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0 0 1em 0;
+    position: relative;
+}
+form.aui textarea,form.aui select,form.aui optgroup,form.aui option,form.aui input.text {
+    color: #000;
+    font-family: arial,tahoma,verdana,sans-serif;
+    font-size: 13px;
+}
+form.aui pre.aui-form {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    font-family: monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 15px;
+}
+form.aui img.aui-form,form.aui a img.aui-form,form.aui fieldset {
+    border: none;
+}
+form.aui span.aui-form {
+    margin-right: 0.25em;
+}
+form.aui p {
+    margin-bottom: 5px;
+    padding: 5px 0 5px 0;
+}
+form.aui fieldset {
+    border: 0;
+    display: block;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    position: relative;
+}
+form.aui input,
+form.aui select {
+    margin-right: 5px;
+    padding: 2px;
+}
+form.aui select {
+    padding: 1px;
+}
+form.aui option {
+    padding: 0 1em;
+}
+form.aui textarea {
+    overflow: auto;
+    padding: 1px 2px;
+}
+form.aui input.button,
+form.aui button {
+    line-height: 1.2;
+    margin: 10px 10px 0 0;
+    padding: 0 0.5em;
+}
+form.aui .buttons a.cancel {
+    line-height: 1.2;
+    margin: 10px 10px 0 0;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    /* Safari 3.0 and Chrome hacks here */
+    form.aui button {
+        padding: 0.1em 0.5em 0.5em;
+    }
+
+}
+form.aui div.error {
+    color: #c00;
+    font-weight: bold;
+}
+form.aui div.description {
+    font-size: 11px;
+}
+form.aui .field-value {
+    color: #000;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1;
+    padding-top: 4px;
+}
+
+/* headings */
+form.aui h2,
+form.aui h3 {
+    border-bottom: 1px solid #ddd;
+    clear: both;
+    color: #222;
+    font-size: 16px;
+    margin: 10px 0;
+}
+form.aui h3 {
+    font-size: 14px;
+}
+
+form.aui.unsectioned h2,
+form.aui.unsectioned h3 {
+    border: none;
+}
+
+
+/* legend,labels left hand width related items */
+form.aui legend {
+    display: none;
+}
+form.aui legend span {
+    color: #333;
+    display: block;
+    left: 0;
+    line-height: 1;
+    position: absolute;
+    top: 3px;
+    white-space: normal;
+    width: 130px;
+    text-align: right;
+}
+form.aui .field-group {
+    clear: both;
+    display: block;
+    margin-bottom: 5px;
+    min-height: 1.6em;
+    padding: 0 0 5px 140px;
+}
+form.aui .field-group:last-child,
+form.aui fieldset fieldset:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+form.aui .field-group label {
+    float: left;
+    display: block;
+    left: -140px;
+    line-height: 1;
+    margin-right: -130px;
+    padding-top: 4px;
+    position: relative;
+    width: 130px;
+    text-align: right;
+}
+form.aui div.matrix {
+    padding-top: 0;
+    width: 780px;
+}
+form.aui div.matrix div.checkbox,
+form.aui div.matrix div.radio {
+    clear: none;
+    float: left;
+    width: 250px;
+}
+
+/* input default and fixed widths */
+form.aui .text,
+form.aui .textarea,
+form.aui .select {
+    width: 250px;
+}
+form.aui .short-field {
+    width: 75px;
+}
+form.aui .medium-field {
+    width: 165px;
+}
+form.aui .long-field {
+    width: 500px;
+}
+/* select */
+form.aui .multi-select {
+    min-width: 250px;
+}
+form.aui .multi-select optgroup {
+    background-color: #f8f8f8;
+    color: #999;
+    font-style: normal;
+    font-weight: normal;
+}
+form.aui .multi-select optgroup option {
+    background-color: #fff;
+    color: #000;
+}
+/* date selects */
+form.aui .date-select legend {
+    display: block;
+}
+form.aui .date-select legend span {
+    left: 0;
+}
+form.aui .date-select .field-group label {
+    display: none;
+}
+/* submit div - outside the fieldsets */
+form.aui .buttons-container {
+    border-top: 1px solid #ddd;
+    clear: both;
+    margin-bottom: 5px;
+    min-height: 2.7em;
+    overflow: auto;
+}
+form.aui.unsectioned .buttons-container {
+    border: none;
+}
+form.aui .buttons {
+    padding: 0 0 5px 140px;
+}
+form.aui .buttons-container.right .buttons {
+    clear: both;
+    float: right;
+    padding: 0 5px 5px 0;
+    width: auto;
+}
+form.aui .buttons-container.left .buttons {
+    padding: 0 5px 5px 0;
+}
+
+/* radios and checkboxes */
+form.aui div.radio input.radio,
+form.aui div.checkbox input.checkbox {
+    border: none;
+    float: left;
+    margin-top: 2px;
+    width: 15px;
+} /* IE */
+
+/* groups */
+form.aui .group {
+    position: relative;
+    clear: both;
+    display: block;
+    margin-bottom: 5px;
+    min-height: 1.6em;
+    padding: 0 0 5px 0;
+}
+form.aui .group .field-value {
+    float: left;
+    margin-right: .25em;
+    min-width: 2.5em;
+    padding-top: 0;
+    line-height: inherit;
+}
+form.aui .group .field-value.checked {
+    color: #693;
+}
+form.aui .group legend {
+    display: block;
+}
+form.aui div.checkbox,
+form.aui div.radio {
+    padding: 0 0 5px 140px;
+} /* IE */
+form.aui .group label,
+form.aui div.radio label,
+form.aui div.checkbox label {
+    float: none;
+    display: inline;
+    left: 0;
+    margin: 0;
+    width: auto;
+}
+form.aui div.radio .error,
+form.aui div.checkbox .error {
+    margin-left: 19px;
+}
+form.aui div.radio .description,
+form.aui div.checkbox .description {
+    clear: both;
+    margin-left: 19px;
+}
+
+
+/* long labels - add long-label class to form "aui long-label" */
+form.aui.long-label .field-group,
+form.aui.long-label .group,
+form.aui.long-label .buttons {
+    padding-left: 250px;
+}
+form.aui.long-label .group label,
+form.aui.long-label .group .field-group,
+form.aui.long-label div.checkbox,
+form.aui.long-label div.radio {
+    padding: 0 0 5px 0;
+}
+
+form.aui.long-label .group label,
+form.aui.long-label .field-group label {
+    left:-200px;
+    margin-right:-190px;
+    width:190px;
+}
+
+
+form.aui.long-label legend span {
+    left: 110px;
+}
+
+@-moz-document url-prefix() { /* hacking for firefox */
+    form.aui.long-label .group legend span {
+        left: -140px;
+    }
+}
+
+/* //long labels */
+
+/* labels on top - add top-label class to form "aui top-label" */
+form.aui.top-label fieldset {
+    margin-bottom: 0;
+}
+form.aui.top-label .field-group {
+    padding-left: 0;
+}
+form.aui.top-label .field-group label {
+    float: none;
+    left: 0;
+    margin: 0 0 2px 0;
+    width: auto;
+    text-align: left;
+}
+form.aui.top-label .group {
+    padding-left: 0;
+    padding-top: 0.5em;
+}
+form.aui.top-label div.checkbox,
+form.aui.top-label div.radio {
+    padding: 0 0 5px 0;
+}
+/* date selects and checkbox / radio groups */
+form.aui.top-label .group legend span,
+form.aui.top-label .date-select legend span {
+    left: 0;
+    position: relative;
+    top: 0;
+    text-align: left;
+    width: auto;
+}
+form.aui.top-label .date-select label {
+    display: none;
+}
+form.aui.top-label .buttons {
+    padding: 0 0 5px 0;
+}
+/* //labels on top */
+
+/* inline for small single line forms - add inline class to fieldset */
+form.aui .inline {
+    padding-bottom: 0;
+}
+form.aui .inline label {
+    font-weight: bold;
+}
+form.aui .inline .aui-icon {
+    margin-right: 3px;
+}
+/* //inline */
+
+form.aui span.content {
+    left: -9999px;
+    position: absolute;
+    top: -9999px;
+}

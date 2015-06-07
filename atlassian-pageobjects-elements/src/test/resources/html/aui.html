@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta content="atl.general" name="decorator" />
+    <title>AUI Page</title>
+
+    <link type="text/css" rel="stylesheet" href="../aui/css/basic.css" media="all">
+    <link type="text/css" rel="stylesheet" href="../aui/css/firebug.css" media="all">
+    <link type="text/css" rel="stylesheet" href="../aui/css/dialog.css" media="all">
+    <link type="text/css" rel="stylesheet" href="../aui/css/dropdown.css" media="all">
+    <link type="text/css" rel="stylesheet" href="../aui/css/forms.css" media="all">
+    <link type="text/css" rel="stylesheet" href="../aui/css/icons.css" media="all">
+    <link type="text/css" rel="stylesheet" href="../aui/css/inline-dialog.css" media="all">
+    <link type="text/css" rel="stylesheet" href="../aui/css/messages.css" media="all">
+    <link type="text/css" rel="stylesheet" href="../aui/css/tables.css" media="all">
+    <link type="text/css" rel="stylesheet" href="../aui/css/tabs.css" media="all">
+    <link type="text/css" rel="stylesheet" href="../aui/css/toolbar.css" media="all">
+
+    <script src="../aui/js/raphael.js" ></script>
+    <script src="../aui/js/raphael.shadow.js" ></script>
+    <script src="../aui/js/jquery.js" ></script>
+    <script src="../aui/js/jquery-compatibility.js" ></script>
+    <script src="../aui/js/jquery-ui.js" ></script>
+    <script src="../aui/js/jquery-ui-1.7-bug-fixes.js" ></script>
+    <script src="../aui/js/jquery.aop.js" ></script>
+    <script src="../aui/js/jquery.form.js" ></script>
+    <script src="../aui/js/jquery.hotkeys.js" ></script>
+    <script src="../aui/js/atlassian.js" ></script>
+    <script src="../aui/js/event.js" ></script>
+    <script src="../aui/js/cookie.js" ></script> 
+    <script src="../aui/js/dialog.js" ></script>
+    <script src="../aui/js/dropdown.js" ></script>
+    <script src="../aui/js/icons.js" ></script>
+    <script src="../aui/js/inline-dialog.js" ></script>
+    <script src="../aui/js/firebug.js" ></script>
+    <script src="../aui/js/forms.js" ></script>
+    <script src="../aui/js/messages.js" ></script>
+    <script src="../aui/js/tables.js" ></script>
+    <script src="../aui/js/tabs.js" ></script>
+    <script src="../aui/js/template.js" ></script>
+    <script src="../aui/js/whenitype.js" ></script>
+    <script src="../aui/js/toolbar.js" ></script>
+    <script src="../aui/js/jquery.autocomplete.js" ></script>
+    <script src="../aui/js/jquery.is-dirty.js" ></script>
+    <script src="../aui/js/jquery.progressbar.js" ></script>
+    <script src="../aui/js/jquery.selection.js" ></script>
+    <script src="../aui/js/jquery.throbber.js" ></script>
+</head>
+<body>
+    <h2>AuiDropDown</h2>
+       <p class="description"> Shows a standard dropdown </p>
+            <ul id = "dropDown-standard" class="styled-parent">
+                <li class="aui-dd-parent">
+                    <a href="#" class="aui-dd-trigger unstyled">Links</a>
+                    <ul class="aui-dropdown">
+                        <li class="dropdown-item"><a href="jquery.html" class="item-link">JQuery Page</a></li>
+                        <li class="dropdown-item"><a href="#" class="item-link">Item 1</a></li>
+                        <li class="dropdown-item"><a href="#" class="item-link">Item 2</a></li>
+                        <li class="dropdown-item"><a href="#" class="item-link">Item 3</a></li>
+                        <li class="dropdown-item"><a href="#" class="item-link">Item 4</a></li>
+                        <li class="dropdown-item"><a href="#" class="item-link">Item 5</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        <script type="text/javascript">
+            AJS.$("#dropDown-standard").dropDown("Standard", {alignment:"left"});
+        </script>
+
+    <h2>AuiTabs</h2>
+
+    <div class="aui-tabs horizontal-tabs" id="horizontal">
+        <ul class="tabs-menu">
+            <li class="menu-item active-tab">
+                <a href="#horizontal-first"><strong>Admin Tab</strong></a>
+            </li>
+            <li class="menu-item">
+                <a href="#horizontal-second"><strong>User Tab</strong></a>
+            </li>
+        </ul>
+        <div class="tabs-pane active-pane" id="horizontal-first">
+            <h4>This is Admin Tab</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor volutpat posuere. Nunc non lacinia ligula. In convallis iaculis interdum. Sed quis risus gravida enim adipiscing semper. In magna tortor, scelerisque vel lobortis sed, tincidunt quis mauris. Sed libero neque, hendrerit ac sagittis eget, rhoncus vel augue. Proin eget blandit ligula. Praesent placerat, nisl a laoreet ultrices, mi sem suscipit nisl, non ornare neque massa nec augue. Integer consectetur elementum posuere. Integer feugiat aliquam rutrum. Praesent sapien lectus, pharetra quis pharetra vel, mattis ut orci. In vehicula nibh et enim lacinia interdum. Sed aliquam vehicula risus, vitae commodo sapien vulputate eu. Phasellus vulputate tempor aliquet.</p>
+        </div>
+        <div class="tabs-pane" id="horizontal-second">
+            <h4>This is User Tab</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor volutpat posuere. Nunc non lacinia ligula. In convallis iaculis interdum. Sed quis risus gravida enim adipiscing semper. In magna tortor, scelerisque vel lobortis sed, tincidunt quis mauris. Sed libero neque, hendrerit ac sagittis eget, rhoncus vel augue. Proin eget blandit ligula. Praesent placerat, nisl a laoreet ultrices, mi sem suscipit nisl, non ornare neque massa nec augue. Integer consectetur elementum posuere. Integer feugiat aliquam rutrum. Praesent sapien lectus, pharetra quis pharetra vel, mattis ut orci. In vehicula nibh et enim lacinia interdum. Sed aliquam vehicula risus, vitae commodo sapien vulputate eu. Phasellus vulputate tempor aliquet.</p>
+        </div>
+    </div> <!-- // .aui-tabs -->
+
+    <script type="text/javascript">
+        AJS.tabs.setup();
+    </script>
+
+    <h2>Inline Dialog</h2>
+    <div><a href="#" id="popupLink">Click Link</a></div>
+    <script type="text/javascript">
+        AJS.InlineDialog(AJS.$("#popupLink"), 1, "inline-dialog-content.html");
+    </script>
+</body>
+</html>

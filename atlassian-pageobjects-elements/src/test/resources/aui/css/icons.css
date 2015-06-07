@@ -1,0 +1,90 @@
+/**
+* Basic icon styles. Allows you to easily render sprite icons.
+*
+* .aui-icon must be present on all iconified elements
+* All iconified elements must include class names prefixed with 'i-'
+* Icons assume light backgrounds. Icon classnames for dark backgrounds must be suffixed with '-d'
+* For elements whose background changes in app, we advise maintaining light/dark state in the app.
+*
+*/
+
+.aui-icon {
+    background: transparent url(images/icons/aui-icon-tools.gif) no-repeat 0 0;
+    border: none;
+    display: block;
+    height: 13px;
+    padding: 0;
+    text-indent: -9999px;
+    width: 13px;
+}
+
+.icon-move {
+    background-position: 0 0;
+    cursor: move;
+}
+.icon-maximize {
+    background-position: -52px 0;
+}
+.icon-minimize {
+    background-position: -39px 0;
+}
+.icon-minimize-d {
+    background-position: -39px -13px;
+}
+
+/* form icons - add aui-icon class together with the icon class "aui-icon icon-help" */
+form.aui .aui-icon {
+    background: transparent url(images/icons/aui-icon-forms.gif) no-repeat 0 0;
+    display: inline-block;
+    height: 16px;
+    margin: 0 1px 0 1px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 16px;
+}
+
+/* position icon sprite */
+form.aui .icon-date {
+    background-position: 0 -20px;
+}
+form.aui .icon-range {
+    background-position: 0 -40px;
+}
+form.aui .icon-help {
+    background-position: 0 -60px;
+}
+form.aui .icon-required {
+    background-position: 0 -80px;
+    height: 13px;
+    vertical-align: top;
+    width: 8px;
+}
+form.aui legend span.icon-required {
+    left: auto;
+    position: relative;
+    top: auto;
+}
+form.aui .icon-users {
+    background-position: 0 -100px;
+}
+form.aui .icon-inline-help {
+    background-position: 0 -60px;
+    cursor: help;
+}
+
+/*NEW ICON FOR AUI SANDBOX, added here because they may be added at a later point DO NOT USE*/
+.aui-icon-new {
+    background: transparent url("images/icons/aui-message-icon-sprite.png") no-repeat 0 0;
+    border: none;
+    display: inline-block;
+    height: 14px;
+    padding: 0;
+    text-indent: -9999px;
+    width: 14px;
+}
+
+.aui-icon-new.icon-info {
+    background-position: -96px 0;
+}              
+
+

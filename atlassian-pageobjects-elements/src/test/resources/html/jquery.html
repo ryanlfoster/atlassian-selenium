@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Custom Components</title>
+	<style type="text/css">
+        body {font-family:arial; font-size:11px;}
+
+        /* General dropdown styles */
+        .dropdown dd, .dropdown dt, .dropdown ul { margin:0px; padding:0px; }
+        .dropdown dd { position:relative; }
+
+        /* DT styles for sliding doors */
+        .dropdown dt a {background:#e4dfcb no-repeat scroll right center;
+        display:block; padding-right:20px; border:1px solid #d4ca9a; width:150px;}
+        .dropdown dt a span {cursor:pointer; display:block; padding:5px;}
+
+        /* UL styles */
+        .dropdown dd ul { background:#e4dfcb none repeat scroll 0 0; display:none;
+            list-style:none; padding:5px 0px; position:absolute;
+            left:0px; top:2px; width:auto; min-width:170px;}
+        .dropdown span.value { display:none;}
+        .dropdown dd ul li a { padding:5px; display:block;}
+	</style>
+
+    <script src="../js/jquery-1.4.2.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $(".dropdown dt a").click(function() {
+                $(".dropdown dd ul").toggle();
+            });
+        });
+
+	</script>
+</head>
+<body>
+    <h2>JQuery DropDown Menu</h2>
+   <dl id="menu" class="dropdown">
+		<dt><a id="menu_link" href="#"><span>Sample Menu</span></a></dt>
+		<dd>
+			<ul>
+				<li><a id="elements_link" href="elements.html">Elements Page</a></li>
+				<li><a href="#">Dummy Link 1</a></li>
+				<li><a href="#">Dummy Link 2</a></li>
+				<li><a href="#">Dummy Link 3</a></li>
+				<li><a href="#">Dummy Link 4</a></li>
+			</ul>
+		</dd>
+	</dl>
+
+</body>
+</html>

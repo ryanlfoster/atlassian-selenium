@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>atlassian-selenium-parent</artifactId>
+        <groupId>com.atlassian.selenium</groupId>
+        <version>2.3-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>atlassian-webdriver</artifactId>
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+
+    <modules>
+        <module>atlassian-webdriver-core</module>
+        <module>atlassian-webdriver-jira</module>
+        <module>atlassian-webdriver-confluence</module>
+        <module>atlassian-webdriver-greenhopper</module>
+    </modules>
+
+    <properties>
+        <xvfb.enable>false</xvfb.enable>
+        <xvfb.display>:20</xvfb.display>
+    </properties>
+
+   <profiles>
+       <profile>
+           <id>release</id>
+           <properties>
+               <xvfb.enable>true</xvfb.enable>
+           </properties>
+       </profile>
+   </profiles>
+
+</project>

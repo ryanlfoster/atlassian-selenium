@@ -1,0 +1,122 @@
+
+/* AUI Tabs */
+.aui-tabs ul.tabs-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 5;
+}
+    .aui-tabs ul.tabs-menu li.menu-item {
+        margin: 0;
+        padding: 0;
+    }
+        .aui-tabs ul.tabs-menu li.menu-item a {
+            background: #fff;
+            color: #535353;
+            display: block;
+            text-decoration: none;
+        }
+        .aui-tabs ul.tabs-menu li.menu-item strong {
+            display: block;
+            overflow: hidden;
+            padding: 0.4em 0.6em 0.2em 0.6em;
+        }
+    .aui-tabs ul.tabs-menu li.menu-item.active-tab {
+        background: #fff;
+    }
+    .aui-tabs ul.tabs-menu li.menu-item.active-tab strong {
+        background: #fff;
+        color: #000;
+        cursor: default;
+    }
+    .aui-tabs ul.tabs-menu li.menu-item.active-tab a {
+        background: #fff;
+        color: #000;
+    }
+.aui-tabs .tabs-pane {
+    border-top: 1px solid #bbb;
+    display: none;
+    padding: 1em;
+}
+.aui-tabs .tabs-pane.active-pane {
+    display: block;
+}
+
+/* Vertical Tabs */
+.aui-tabs.vertical-tabs ul.tabs-menu {
+    float: left;
+    width: 11em;
+}
+    .aui-tabs.vertical-tabs ul.tabs-menu li.menu-item {
+        border: 1px solid #bbb;
+        border-right: none;
+        margin: -1px 0 0 0;
+    }
+    .aui-tabs.vertical-tabs ul.tabs-menu li.menu-item:first-child {
+        margin-top: 1em;
+    }
+    .aui-tabs.vertical-tabs ul.tabs-menu li.menu-item.active-tab {
+        background: #fff;
+        margin-left: -0.5em;
+    }
+        .aui-tabs.vertical-tabs li.menu-item a,
+        .aui-tabs.vertical-tabs li.menu-item a:link,
+        .aui-tabs.vertical-tabs li.menu-item a:visited {
+            background: #f0f0f0;
+            color: #535353;
+        }
+        .aui-tabs.vertical-tabs li.menu-item a:hover,
+        .aui-tabs.vertical-tabs li.menu-item a:active,
+        .aui-tabs.vertical-tabs li.menu-item a:focus {
+            background: #fff;
+            color: #535353;
+        }
+        .aui-tabs.vertical-tabs li.menu-item strong {
+            font-weight: 700;
+            white-space: nowrap;
+        }
+    .aui-tabs.vertical-tabs .tabs-pane {
+        border: 1px solid #bbb;
+        margin: 0 0 0 11em;
+        position: relative;
+        z-index: 1;
+    }
+
+/* Horizontal Tabs */
+.aui-tabs.horizontal-tabs ul.tabs-menu {
+    overflow: hidden;
+    top: 2px;
+}
+    .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item {
+        border-bottom: 1px solid #bbb;
+        float: left;
+        width: auto;
+    }
+    .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item:first-child {
+        margin-left: 1em;
+    }
+        .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item a,
+        .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item a:link,
+        .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item a:visited {
+            border: 1px solid #fff;
+            border-bottom: none;
+        }
+        .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item a:hover,
+        .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item a:active,
+        .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item a:focus {
+            border-color: #ddd;
+        }
+        .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item strong {
+            font-weight: 400;
+        }
+    .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item.active-tab {
+        border-bottom-color: #fff;
+    }
+        .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item.active-tab a {
+            border: none;
+        }
+        .aui-tabs.horizontal-tabs ul.tabs-menu li.menu-item.active-tab strong {
+            border: 1px solid #bbb;
+            border-bottom-color: #fff;
+        }

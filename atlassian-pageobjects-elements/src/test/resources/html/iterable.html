@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Testing iterators of PageElements</title>
+    <script src="/js/jquery-1.4.2.min.js"></script>
+    <script>
+        function addNewItem()
+        {
+            $('#three-elements-new-item').addClass("three-elements");
+        }
+        $(document).ready(function(){
+            $("#add-new-item").click(addNewItem());
+        });
+    </script>
+</head>
+<body>
+    <h1>Test 0, 1, several elements in the Iterator</h1>
+    <span class="one-element">valid1</span>
+    
+    <span class="two-elements">valid1</span>
+    <span class="two-elements">valid2</span>
+    
+    <span class="three-elements">valid1</span>
+    <span class="three-elements">valid2</span>
+    <span class="three-elements">valid3</span>
+    <span id="three-elements-new-item" class="">valid4</span>
+    <button id="add-new-item">Add new item</button>
+    
+    <h1>Test subclasses of PageElements</h1>
+    <input type="checkbox" name="one-checkbox" class="one-checkbox" value="CheckboxValue" />
+    <label for="one-checkbox">Tick?</label>
+    
+    <select class="one-select">
+        <option value="option1_Value">Option1_Text</option>
+        <option value="option2_Value" selected="selected">Option2_Text</option>
+        <option value="option3_Value">Option3_Text</option>
+    </select>
+    
+    <select class="one-multiselect" multiple="multiple" >
+        <option value="option1_Value">Option1_Text</option>
+        <option value="option2_Value" selected="selected">Option2_Text</option>
+        <option value="option3_Value" selected="selected">Option3_Text</option>
+    </select>
+    
+    
+    <h1>Test subclasses for an iterator</h1>
+    <input type="checkbox" name="two-checkbox-1" class="two-checkbox" value="koala" />
+    <input type="checkbox" name="two-checkbox-2" class="two-checkbox" value="kangaroo" />
+    
+    <select class="two-select">
+        <option value="flower">Option1_Text</option>
+        <option value="tree" selected="selected">Option2_Text</option>
+        <option value="house">Option3_Text</option>
+    </select>    
+    <select class="two-select">
+        <option value="earth">Option1_Text</option>
+        <option value="forest" selected="selected">Option2_Text</option>
+        <option value="grass">Option3_Text</option>
+    </select>
+    
+    <select class="two-multiselect" multiple="multiple" >
+        <option value="flower">Option1_Text</option>
+        <option value="tree" selected="selected">Option2_Text</option>
+        <option value="house" selected="selected">Option3_Text</option>
+    </select>
+    <select class="two-multiselect" multiple="multiple" >
+        <option value="earth">Option1_Text</option>
+        <option value="forest" selected="selected">Option2_Text</option>
+        <option value="grass" selected="selected">Option3_Text</option>
+    </select>
+    
+</body>
+</html>

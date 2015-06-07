@@ -1,0 +1,140 @@
+/* Styles for AJS.dropDown */
+.aui-dd-parent {
+    position: relative;
+}
+
+
+/*Default Styled Trigger*/
+.aui-dd-parent span a.aui-dd-trigger,
+.aui-dd-parent a.aui-dd-trigger {
+    background: transparent url(images/icons/aui-icon-tools.gif) no-repeat -13px 0;
+    border: none;
+    color: #000;
+    display: block;
+    height: 13px;
+    padding: 0;
+    text-indent: -9999px;
+    width: 13px;
+}
+.aui-dd-parent a.aui-dd-trigger:link,
+.aui-dd-parent a.aui-dd-trigger:visited {}
+.aui-dd-parent a.aui-dd-trigger.active,
+.aui-dd-parent a.aui-dd-trigger:hover,
+.aui-dd-parent a.aui-dd-trigger:active,
+.aui-dd-parent a.aui-dd-trigger:focus {
+    background: transparent url(images/icons/aui-icon-tools.gif) no-repeat -26px 0;
+    border: none;
+    color: #000;
+}
+
+
+.aui-dd-parent span a.aui-dd-trigger {
+    position: absolute;
+    right: 5px;
+    top: 8px;
+}
+
+/*UNSTYLED TRIGGER*/
+.aui-dd-parent span a.aui-dd-trigger.unstyled,
+.aui-dd-parent a.aui-dd-trigger.unstyled {
+    background: none;
+    border: none;
+    color: auto;
+    display: block;
+    height: auto;
+    padding: auto;
+    text-indent: 0;
+    width: auto;
+
+}
+.aui-dd-parent a.aui-dd-trigger-unstyled:link,
+.aui-dd-parent a.aui-dd-trigger-unstyled:visited {}
+.aui-dd-parent a.aui-dd-trigger-unstyled.active,
+.aui-dd-parent a.aui-dd-trigger-unstyled:hover,
+.aui-dd-parent a.aui-dd-trigger-unstyled:active,
+.aui-dd-parent a.aui-dd-trigger-unstyled:focus {
+    background: none;
+    border: none;
+    color: auto;
+}
+
+.aui-dd-parent span a.aui-dd-trigger-unstyled {
+    position: absolute;
+    right: auto;
+    top: auto;
+}
+
+.aui-dropdown {list-style-type:none;}
+
+.aui-dd-parent .aui-dropdown,
+.aui-dropdown,
+.aui-dd-parent .aui-shadow-parent {
+    background: #fff;
+    border: 1px solid #6A8EB3;
+    color: #000;
+    padding: 4px 0 4px 0;
+    position: absolute;
+    z-index: 2003;  
+    margin-top: -1px;
+}
+
+.aui-dd-parent  .aui-dropdown-left{
+    left:0px;
+}
+
+.aui-dd-parent .aui-dropdown-right{
+    right:0px;
+}
+
+.aui-dd-parent .aui-shadow {
+    right: 5px;
+}
+.aui-dd-parent .aui-dropdown li.dropdown-item,
+.aui-dropdown li.dropdown-item  {
+    background: #fff;
+    color: #000;
+    display: block;
+    float: none;
+    margin: 0;
+    position: static;
+}
+
+.aui-dd-parent .aui-dropdown a.item-link,
+.aui-dropdown a.item-link {
+    background: #fff;
+    color: #036;
+    display: inline-block;
+    float: none;
+    height: auto;
+    position: static;
+    text-indent: 0;
+    white-space: nowrap;
+    width: auto;
+}
+.aui-dd-parent .aui-dropdown a.item-link:link,
+.aui-dd-parent .aui-dropdown a.item-link:visited,
+.aui-dropdown a.item-link:link,
+.aui-dropdown a.item-link:visited {
+    background: #fff;
+    color: #036;
+    padding: 0.3em 0.5em;
+}
+.aui-dd-parent .aui-dropdown li.dropdown-item.active a.item-link,
+.aui-dd-parent .aui-dropdown a.item-link:hover,
+.aui-dd-parent .aui-dropdown a.item-link:active,
+.aui-dd-parent .aui-dropdown a.item-link:focus,
+.aui-dropdown a.item-link:hover,
+.aui-dropdown a.item-link:active,
+.aui-dropdown a.item-link:focus  {
+    background: #f2f2f2;
+    color: #036;
+    padding: 0.3em 0.5em;
+}
+
+.aui-dd-parent .aui-dropdown li.dropdown-item a.item-link span.icon {
+    display: inline-block;
+}
+
+div.shim {
+    position: absolute;
+}

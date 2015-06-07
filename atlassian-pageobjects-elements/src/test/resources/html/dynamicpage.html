@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Dynamic Page</title>
+    <script src="../js/jquery-1.4.2.min.js"></script>
+    <script>
+        function removeAndCreateForm()
+        {
+            $('#placeHolderDiv').find("fieldset").remove();
+            createForm();
+        }
+
+        function createForm() {
+            var form = $(document.createElement('fieldset'));
+            form.append('<legend>Hello World Example</legend>');
+            form.append('<label for="nameTextBox">Name:</label><input type="text" id="nameTextBox" /><br/>');
+            form.append('<input type="button" id="helloWorldButton" value="Click Me" />');
+
+            $('#placeHolderDiv').html(form);
+
+            $('#helloWorldButton').click(function(){
+                var fieldSet = $(this).parent();
+                var message = "Hello " + fieldSet.find('#nameTextBox').attr('value') + "!";
+                fieldSet.prepend('<span id="messageSpan">'+ message +'</span>');
+            });
+        }
+
+        $(document).ready(function(){
+            $('#createFieldSetButton').click(function(){
+                createForm();
+            });
+
+            $('#createFieldSetSlowlyButton').click(function() {
+                $('#placeHolderDiv').find("fieldset").remove();
+                window.setTimeout(createForm, 3000);
+            });
+
+            $('#removeAndcreateFieldSetSlowlyButton').click(function(){
+               window.setTimeout(removeAndCreateForm, 3000);
+            });
+        });
+    </script>
+</head>
+<body>
+<h2>Create controls via script</h2>
+<input type="button" id="createFieldSetButton" value="Create Form" />
+<input type="button" id="createFieldSetSlowlyButton" value="Create Form Slowly" />
+<input type="button" id="removeAndcreateFieldSetSlowlyButton" value="Remove and Create Form Slowly" />
+<div id="placeHolderDiv"></div>
+
+</body>
+</html>

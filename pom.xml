@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.atlassian.pom</groupId>
+        <artifactId>public-pom</artifactId>
+        <version>3.0.90</version>
+    </parent>
+
+    <groupId>com.atlassian.selenium</groupId>
+    <artifactId>atlassian-selenium-parent</artifactId>
+    <version>2.3-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>A suite of tools to help with Selenium test harness, assertions etc.</description>
+
+    <!-- Note: to release any 2.x version the following commands are needed: -->
+    <!-- mvn release:prepare -Darguments="-Dskip.legacy.tests=true" -->
+    <!-- mvn release:perform -Darguments="-Dskip.legacy.tests=true -Dmaven.javadoc.failOnError=false" -->
+    <!-- This is because of legacy modules that will go away in 3.0 (see SELENIUM-211) -->
+
+    <scm>
+        <connection>scm:git:ssh://git@bitbucket.org/atlassian/atlassian-selenium.git</connection>
+        <developerConnection>scm:git:ssh://git@bitbucket.org/atlassian/atlassian-selenium.git</developerConnection>
+        <url>https://bitbucket.org/atlassian/atlassian-selenium/</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>JIRA</system>
+        <url>https://ecosystem.atlassian.net/browse/SELENIUM</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>Bamboo</system>
+        <url>https://bamboo.extranet.atlassian.com/browse/SELENIUM</url>
+    </ciManagement>
+
+    <distributionManagement>
+        <site>
+            <id>atlassian-documentation</id>
+            <url>scpexe://docs-app.internal.atlassian.com/var/www/domains/docs.atlassian.com/${project.artifactId}/${project.version}</url>
+        </site>
+    </distributionManagement>
+
+    <modules>
+        <module>atlassian-performance</module>
+        <module>atlassian-pageobjects-api</module>
+        <module>atlassian-pageobjects-elements</module>
+        <module>atlassian-visual-comparison</module>
+        <module>atlassian-selenium</module>
+        <module>atlassian-selenium-browsers</module>
+        <module>atlassian-webdriver</module>
+    </modules>
+
+    <properties>
+        <jdkLevel>1.6</jdkLevel>
+        <selenium-browsers-version>1.1-beta13</selenium-browsers-version>
+        <webdriver-browsers-version>2.6</webdriver-browsers-version>
+        <selenium.version>2.42.2</selenium.version>
+        <mockito.version>1.9.5</mockito.version>
+        <junit.version>4.11</junit.version>
+        <hamcrest.version>1.3</hamcrest.version>
+        <jetty.version>6.1.24</jetty.version>
+        <slf4j.version>1.7.5</slf4j.version>
+        <!-- HTTP components are required by selenium but we explicitly exclude them such that selenium doesn't impose it as its transitive dependency -->
+        <!-- This version below is used _for testing only_ and needs to be kept in sync with what selenium requires -->
+        <!-- Client projects will have to provide their own version of HTTP components -->
+        <http.components.version>4.3.2</http.components.version>
+        <amps.version>3.7.2</amps.version>
+        <atlassian.annotations.version>0.6</atlassian.annotations.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <maven.enforcer.version>1.3.1</maven.enforcer.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-api</artifactId>
+                <version>${selenium.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-java</artifactId>
+                <version>${selenium.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.testng</groupId>
+                        <artifactId>testng</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>httpclient</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>httpcore</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.5</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>18.0</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-core</artifactId>
+                <version>${hamcrest.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-library</artifactId>
+                <version>${hamcrest.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.atlassian.bundles</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>com.atlassian.annotations</groupId>
+                <artifactId>atlassian-annotations</artifactId>
+                <version>${atlassian.annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!-- Test Dependencies -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${http.components.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${http.components.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.atlassian.maven.plugins</groupId>
+                    <artifactId>maven-confluence-plugin</artifactId>
+                    <version>${amps.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.atlassian.maven.plugins</groupId>
+                    <artifactId>maven-jira-plugin</artifactId>
+                    <version>${amps.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.12.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>2.12.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${maven.enforcer.version}</version>
+                    <executions>
+                        <execution>
+                            <id>ban-conflicting-dependencies</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <phase>validate</phase>
+                            <configuration>
+                                <rules>
+                                    <!--We only do guava from now on -->
+                                    <bannedDependencies>
+                                        <searchTransitive>true</searchTransitive>
+                                        <message>
+                                            Make sure google-collections is not accidentally included as transitive
+                                            dependency. Use guava instead
+                                        </message>
+                                        <excludes>
+                                            <exclude>com.google.collections:google-collections</exclude>
+                                        </excludes>
+                                    </bannedDependencies>
+                                    <bannedDependencies>
+                                        <searchTransitive>true</searchTransitive>
+                                        <message>
+                                            Make sure old versions of junit, hamcrest-all and mockito-all are
+                                            not accidentally included as transitive dependency. Use junit 4.11+,
+                                            hamcrest-core, hamcrest-library or mockito-core instead
+                                        </message>
+                                        <excludes>
+                                            <exclude>junit:junit</exclude>
+                                            <exclude>org.mockito:mockito-all</exclude>
+                                            <exclude>org.hamcrest:hamcrest-all</exclude>
+                                        </excludes>
+                                        <includes>
+                                            <!--Starting with 4.11 JUnit is a good boy -->
+                                            <include>junit:junit:4.11</include>
+                                        </includes>
+                                    </bannedDependencies>
+
+                                    <bannedDependencies>
+                                        <searchTransitive>true</searchTransitive>
+                                        <message>
+                                            Make sure no junit-dep is on the classpath, we only accept junit:junit 4.11+
+                                        </message>
+                                        <excludes>
+                                            <exclude>junit:junit-dep</exclude>
+                                        </excludes>
+                                    </bannedDependencies>
+                                </rules>
+                                <fail>true</fail>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!-- Silence some m2e warnings in eclipse -->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>org.apache.maven.plugins</groupId>
+                                        <artifactId>maven-enforcer-plugin</artifactId>
+                                        <versionRange>[1.0.0,)</versionRange>
+                                        <goals>
+                                            <goal>enforce</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore />
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <profiles>
+        <!-- The below custom-* profiles can be used to customize browser/profile versions without upgrading atlassian-browsees -->
+        <!-- This should _only_ be used for testing that the upcoming atlassian-browsers release will be compatible -->
+        <profile>
+            <id>custom-chrome</id>
+            <activation>
+                <property>
+                    <name>custom.chrome.version</name>
+                </property>
+            </activation>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.atlassian.browsers</groupId>
+                        <artifactId>chrome</artifactId>
+                        <version>${custom.chrome.version}</version>
+                        <classifier>osx</classifier>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.atlassian.browsers</groupId>
+                        <artifactId>chrome-profile</artifactId>
+                        <version>${custom.chrome.profile.version}</version>
+                        <classifier>osx</classifier>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.atlassian.browsers</groupId>
+                        <artifactId>chrome</artifactId>
+                        <version>${custom.chrome.version}</version>
+                        <classifier>linux</classifier>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.atlassian.browsers</groupId>
+                        <artifactId>chrome-profile</artifactId>
+                        <version>${custom.chrome.profile.version}</version>
+                        <classifier>linux</classifier>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.atlassian.browsers</groupId>
+                        <artifactId>chrome</artifactId>
+                        <version>${custom.chrome.version}</version>
+                        <classifier>linux64</classifier>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.atlassian.browsers</groupId>
+                        <artifactId>chrome-profile</artifactId>
+                        <version>${custom.chrome.profile.version}</version>
+                        <classifier>linux64</classifier>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>${maven.enforcer.version}</version>
+                        <executions>
+                            <execution>
+                                <id>enforce-chrome-version-properties</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <phase>validate</phase>
+                                <configuration>
+                                    <rules>
+                                        <requireProperty>
+                                            <property>custom.chrome.version</property>
+                                            <regex>.*\d.*</regex>
+                                            <regexMessage>The custom.chrome.version property must contain at least one digit</regexMessage>
+                                        </requireProperty>
+                                        <requireProperty>
+                                            <property>custom.chrome.profile.version</property>
+                                            <message>You must set the custom.chrome.profile.version property alongside custom.chrome.version</message>
+                                            <regex>.*\d.*</regex>
+                                            <regexMessage>The custom.chrome.profile.version property must contain at least one digit</regexMessage>
+                                        </requireProperty>
+                                    </rules>
+                                    <fail>true</fail>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>custom-firefox</id>
+            <activation>
+                <property>
+                    <name>custom.firefox.version</name>
+                </property>
+            </activation>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.atlassian.browsers</groupId>
+                        <artifactId>firefox</artifactId>
+                        <version>${custom.firefox.version}</version>
+                        <classifier>osx</classifier>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.atlassian.browsers</groupId>
+                        <artifactId>firefox</artifactId>
+                        <version>${custom.firefox.version}</version>
+                        <classifier>linux</classifier>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.atlassian.browsers</groupId>
+                        <artifactId>firefox</artifactId>
+                        <version>${custom.firefox.version}</version>
+                        <classifier>linux64</classifier>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.atlassian.browsers</groupId>
+                        <artifactId>firefox</artifactId>
+                        <version>${custom.firefox.version}</version>
+                        <classifier>windows</classifier>
+                    </dependency>
+
+                    <!-- Firefox profile is same for all OSes -->
+                    <dependency>
+                        <groupId>com.atlassian.browsers</groupId>
+                        <artifactId>firefox-profile</artifactId>
+                        <version>${custom.firefox.version}</version>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <version>${maven.enforcer.version}</version>
+                        <executions>
+                            <execution>
+                                <id>enforce-firefox-version-properties</id>
+                                <goals>
+                                    <goal>enforce</goal>
+                                </goals>
+                                <phase>validate</phase>
+                                <configuration>
+                                    <rules>
+                                        <requireProperty>
+                                            <property>custom.firefox.version</property>
+                                            <regex>.*\d.*</regex>
+                                            <regexMessage>The custom.firefox.version property must contain at least one digit</regexMessage>
+                                        </requireProperty>
+                                    </rules>
+                                    <fail>true</fail>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

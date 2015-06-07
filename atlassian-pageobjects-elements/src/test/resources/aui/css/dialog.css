@@ -1,0 +1,108 @@
+.aui-blanket {
+    background: #000;
+    height: 100%;
+    left: 0px;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2500;
+}
+.aui-dialog-shadow-parent {
+    position: fixed;
+    overflow: hidden;
+    left:50%;
+    top:50%;
+}
+.aui-popup {
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    z-index: 3000;
+}
+.aui-dialog {
+    border: 1px solid #666;
+    font-size: 14px;
+    overflow: hidden;
+}
+.aui-dialog h2.dialog-title {
+    background: #f0f0f0;
+    color: #666;
+    font-size: 1.5em;
+    height: 43px;
+    line-height: 43px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 1em;
+    position: relative;
+}
+.aui-dialog .dialog-page-menu {
+    background: #fff;
+    border-right: 1px solid #f0f0f0;
+    float: left;
+    height: 100%;
+    list-style: none;
+    margin: 0 1.17em 0 0;
+    padding: 10px 0 0 0;
+    width: 25%;
+}
+.aui-dialog .dialog-page-menu li.page-menu-item {
+    margin: 0;
+    padding: 0;
+}
+.aui-dialog .dialog-page-menu li.page-menu-item.selected {
+    background: #69c;
+    color: #fff;
+}
+.aui-dialog .dialog-page-menu li.page-menu-item.selected button.item-button {
+    color: #fff;
+    font-weight: 800;
+}
+.aui-dialog .dialog-page-menu li.page-menu-item button.item-button {
+    background: none;
+    border: none;
+    color: #666;
+    font-family: "segoe ui", helvetica, arial, sans-serif;
+    font-size: 1em;
+    padding: .4em 1.2em;
+    text-align: left;
+    width: 100%;
+}
+.aui-dialog .dialog-panel-body {
+    overflow: auto;
+    padding: 10px;
+}
+
+.aui-dialog .dialog-button-panel {
+    background: #fff;
+    border-top: 1px solid #f0f0f0;
+    clear: both;
+    height: 23px;
+    overflow: hidden;
+    padding: 10px 0 10px 0;
+    text-align: right;
+    width: 100%;
+}
+.aui-dialog .dialog-button-panel button.button-panel-button {
+    font-size: 1em;
+    margin-right: 1.65em;
+    margin-top: 2px;
+}
+.aui-dialog .dialog-button-panel button.button-panel-button.left {
+    float: left;
+    margin: 0 0 0 0.5em;
+}
+
+.aui-dialog .dialog-button-panel a.button-panel-link {
+    font-size: 1em;
+    margin-right: 1.65em;
+    margin-top: 2px;
+}
+
+.aui-dialog .dialog-blanket {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.2;
+    background: #000;
+}

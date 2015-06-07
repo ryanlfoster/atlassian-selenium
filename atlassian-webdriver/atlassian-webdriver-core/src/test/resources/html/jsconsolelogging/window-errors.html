@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log JavaScript console output test page</title>
+</head>
+<body>
+<h1>Log JavaScript console output test page</h1>
+
+<script>
+    window.useUndefinedVariable = function() {
+        var result = foo.bar;
+        result = result + 5;
+        return result;
+    };
+    useUndefinedVariable();
+</script>
+
+</body>
+</html>

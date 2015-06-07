@@ -1,0 +1,124 @@
+.aui-message {
+    background: #f0f0f0;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #333;
+    margin: 0 0 1em 0;
+    min-height: 1em;
+    padding: 1em 1em 1em 35px;
+    position: relative;
+}
+.aui-message.shadowed {
+    box-shadow: 0 1px 2px #ccc;
+    -moz-box-shadow: 0 1px 2px #ccc;
+    -webkit-box-shadow: 0 1px 2px #ccc;
+}
+.aui-message.closeable {
+    z-index: 4000;
+}
+    .aui-message .svg-icon {
+        left: 10px;
+        position: absolute;
+        top: 10px;
+    }
+    .aui-message.closeable .svg-icon.close {
+        cursor: pointer;
+        left: auto;
+        position: absolute;
+        right: 6px;
+        top: 6px;
+    }
+.aui-message.error {
+    background: #ffe7e7; 
+    border-color: #df9898;
+}
+.aui-message.warning {
+    background: #ffd;
+    border-color: #f7df92;
+}
+.aui-message.info {
+    background: #e0efff;
+    border-color: #9eb6d4;
+}
+.aui-message.success {
+    background: #ddfade;
+    border-color: #93c49f;
+}
+.aui-message.hint {
+    background: #dff8fb;
+    border-color: #93bbbf;
+}
+    .aui-message p.title {
+        font-weight: bold;
+    }
+    .aui-message p {
+        margin: 0.5em 0 0 0;
+    }
+    .aui-message p:first-child {
+        margin: 0;
+    }
+    .aui-message ul {
+        margin: 0.5em 0 0 0;
+        padding: 0 0 0 1em;
+    }
+    .aui-message ul:first-child {
+        margin: 0;
+    }
+        .aui-message ul li {
+            margin: 0;
+            padding: 0;
+        }
+/*TEMPORARY ICON CSS FOR MESSAGES, MOVE/REPLACE WHEN AUI ICONS ARE COMPLETED*/
+.aui-message .aui-icon {
+    background: transparent url("images/icons/aui-message-icon-sprite.png") no-repeat 0 0;
+    border: none;
+    display: block;
+    height: 14px;
+    padding: 0;
+    text-indent: -9999px;
+    width: 14px;
+    /*message specific positioning*/
+    left: 10px;
+    position: absolute;
+    top: 0.9em;
+}
+
+.aui-message.closeable .aui-icon.icon-close {
+    cursor: pointer;
+    left: auto;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+}
+
+.aui-message .icon-close {  
+    background-position:0 0;
+}
+              
+.aui-message .icon-error {  
+    background-position:-24px 0;
+}    
+
+.aui-message .icon-generic {
+    background-position:-48px 0;
+}              
+
+.aui-message .icon-hint {   
+    background-position:-72px 0;
+}              
+
+.aui-message .icon-info {
+    background-position:-96px 0;
+}
+
+.aui-message .icon-success {
+    background-position:-120px 0;
+}              
+
+.aui-message .icon-warning {
+    background-position:-144px 0;
+}              
+
+/*END ICONS*/

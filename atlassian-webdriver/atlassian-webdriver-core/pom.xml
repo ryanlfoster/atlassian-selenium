@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>atlassian-webdriver</artifactId>
+        <groupId>com.atlassian.selenium</groupId>
+        <version>2.3-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>atlassian-webdriver-core</artifactId>
+    <name>${project.artifactId}</name>
+
+    <repositories>
+        <repository>
+            <id>selenium-repository</id>
+            <url>http://selenium.googlecode.com/svn/repository/</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <webdriver.browser>firefox</webdriver.browser>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.atlassian.browsers</groupId>
+                <artifactId>atlassian-browsers-auto</artifactId>
+                <version>${webdriver-browsers-version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.atlassian.selenium</groupId>
+            <artifactId>atlassian-pageobjects-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.selenium</groupId>
+            <artifactId>atlassian-visual-comparison</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.browsers</groupId>
+            <artifactId>atlassian-browsers-auto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.annotations</groupId>
+            <artifactId>atlassian-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.util.concurrent</groupId>
+            <artifactId>atlassian-util-concurrent</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <!-- Required for the SimpleServer test utility. Consumers who want to use SimpleServer must manually add the
+             dependency. As we don't want to impose it on all webdriver-core consumers -->
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty</artifactId>
+            <version>${jetty.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Add in support for capturing javascript errors and console output. -->
+        <dependency>
+            <groupId>net.jsourcerer.webdriver</groupId>
+            <artifactId>JSErrorCollector</artifactId>
+            <version>0.5-atlassian-2</version>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <systemPropertyVariables>
+                        <xvfb.enable>${xvfb.enable}</xvfb.enable>
+                        <xvfb.display>${xvfb.display}</xvfb.display>
+                        <webdriver.browser>${webdriver.browser}</webdriver.browser>
+                    </systemPropertyVariables>
+                    <excludes>
+                        <exclude>com/atlassian/webdriver/it/visualcomparison/**/*.java</exclude>
+                        <exclude>**/*$*</exclude> <!-- keep excluding inner classes, as in atlassian-base-pom -->
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>linux</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <properties>
+                <xvfb.enable>true</xvfb.enable>
+            </properties>
+        </profile>
+        <profile>
+            <id>force-linux64</id>
+            <activation>
+                <property>
+                    <name>os.arch.override</name>
+                    <value>64</value>
+                </property>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.atlassian.browsers</groupId>
+                    <artifactId>atlassian-browsers-linux64</artifactId>
+                    <version>${webdriver-browsers-version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>vnc</id>
+            <activation>
+                <property>
+                    <name>vnc.enable</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <properties>
+                <xvfb.enable>false</xvfb.enable>
+            </properties>
+        </profile>
+        <profile>
+            <id>visual-comparison</id>
+            <activation>
+                <property>
+                    <name>visualComparison</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <skipTests>false</skipTests> <!-- always run the tests -->
+                            <systemPropertyVariables>
+                                <xvfb.enable>${xvfb.enable}</xvfb.enable>
+                                <xvfb.display>${xvfb.display}</xvfb.display>
+                                <webdriver.browser>${webdriver.browser}</webdriver.browser>
+                            </systemPropertyVariables>
+                            <includes>
+                                <include>com/atlassian/webdriver/it/visualcomparison/**/*.java</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/*$*</exclude> <!-- keep excluding inner classes, as in atlassian-base-pom -->
+                            </excludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

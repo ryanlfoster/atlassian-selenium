@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Dynamic Page</title>
+    <script src="../js/jquery-1.4.2.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var mouseEventListener = $('#mouse-event-listener');
+            mouseEventListener.bind("click dblclick mouseup mousedown mouseover mousemove mouseout", function(event){
+                mouseEventListener.attr("data-event", event.type);
+            });
+            var formEventListener = $('#form-event-listener');
+            formEventListener.bind("select change submit focus blur", function(event){
+                formEventListener.attr("data-event", event.type);
+            });
+        });
+    </script>
+</head>
+<body>
+<h2>Mouse Event listener</h2>
+<div id="mouse-event-listener" />
+
+<h2>Form Event listener</h2>
+<div id="form-event-listener" />
+
+
+</body>
+</html>

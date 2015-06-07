@@ -1,0 +1,46 @@
+#* @vtlvariable name="differences" type="java.util.Collection<com.atlassian.selenium.visualcomparison.utils.ScreenshotDiff.PageDifference>" *#
+<html>
+    <head>
+        <style type="text/css">
+            img { border: #DDDDDD 1px solid; margin: 5px }
+            img.thumbnail { width: 200px; }
+            table { padding: 0px; }
+            tr { padding: 0px; }
+            td { border: 2px black solid; }
+        </style>
+    </head>
+    <body>
+        <b>Test:</b> $id<br>
+        <b>Resolution:</b> $resolution<br>
+        <B>Full Page:</b> <br>
+        <span>
+            <a href="$oldImageFile"><img class="thumbnail" src="$oldImageFile" title="Baseline image"></a>
+            <a href="$newImageFile"><img class="thumbnail" src="$newImageFile" title="New image"></a>
+            <a href="$diffImageFile"><img class="thumbnail" src="$diffImageFile" title="Diff image"></a>
+        </span>
+        <hr>
+        <b>Page sections:</b> <br>
+        <table>
+#foreach($diff in $differences)
+            <tr>
+                <td>
+                    <img src="${diff.images.oldImageFile}" title="Baseline image">
+                    <img src="${diff.images.newImageFile}" title="New image">
+                    <img src="${diff.images.diffImageFile}" title="Diff image">
+                </td>
+                <td>
+                    <table>
+    #foreach($el in $diff.pageElements)
+                            <tr>
+                                <td>${el.offsetLeft}, ${el.offsetTop}</td>
+                                <td>${el.escapedHtmlString}</td>
+                            </tr>
+    #end
+                    </table>
+
+                </td>
+            </tr>
+#end
+        </table>
+    </body>
+</html>
